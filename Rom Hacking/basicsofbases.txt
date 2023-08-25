@@ -1,0 +1,178 @@
+The Basics of Bases v1.5
+The Romhacking dot Net Version
+written by Neil_
+Originally Written 10/19/01
+Last Revised on 12/5/05
+
+So you want to be a ROM Hacker? Now's a great time to learn. We're at what is most
+likely the tail end of the SNES hacking era. Things are only going to get more
+complicated from here. If you intend on getting in on the fun the 32 bit era
+promises, learning the 16 bit basics now would probably be a good idea.
+
+-The Basics of Bases-
+
+Q. How many fingers is the normal human child born with?
+A. 10.
+
+Q. How many fingers is your computer born with?
+A. uh.... ?
+
+Believe it or not, your computer does not count with the same number system you do.
+Neither do game consoles. Unless you're in posession of a Setun computer or some
+such, your computer counts using two numbers, 0 and 1. On and Off. This my friends,
+is called the Binary Number System. You will NEED to know how to convert between
+binary, decimal and a third numbering system (hexadecimal) if you intend on getting
+down and dirty in some hot and heavy hacking action.
+
+-So how does this mysterious numbering system work?-
+
+It's easy as pie my friends.
+
+Do you remember in grade school going over the difference between the ones, tens,
+and hundreds place in math class? They'd draw these little boxes to help you count
+and identify how many hundreds there were in 347.
+
+ ---      ---     ---
+| 3 |    | 4 |   | 7 |
+ ---      ---     ---
+Hundreds  Tens    Ones
+ 
+This was an important concept to gather back in first grade. The idea that by
+changing the place of numbers in a string, you'd completely change the value of the
+individual numbers and the entire string. 347 has a different meaning than 743 or
+734 or 437 even though it contains the same numbers. Its a concept that you probably
+take for granted these days.
+ 
+ 
+Binary works the same way. You've got different places, and the places matter. Big
+time. Just like you can't reorder 347 to 437 and have it be the same number, you
+cant just move around binary numbers and have them hold the same meaning. Lets look
+at the decimal number 205 in binary (11001101).
+
+
+1   1   0  0  1   1  0 1
+ \   \  \  |  |  /  / /
+ 128 64 32 16 8 4  2 1
+ 
+As the above diagram shows, 8 binary digits are used to represent the number 205.
+The binary digits, just like the decimal numbers you're used to, go from left to
+right with the digit with the greatest value to the left and the smallest value on
+the right.
+
+This brings us to an important excersize. Exactly how do you convert between decimal
+and binary?
+
+Well, first off, lets go from binary to decimal. Once again, lets refer to the
+diagram above. 11001101. As the diagram shows, each of those binary "bits" or digits
+equates to a decimal number. The value to the far left equates to 128 or 2 raised to
+the 7th power in exponential notation. In fact, each of those binary digits equates
+to a power of 2. That's why it's called the "Binary" system. Bi being a prefix
+meaning 2 (Dec coincidentally is the prefix for 10 even though December is the 12th
+month of the year. For this we have a bunch of pompus Roman Emperors to thank. Yay
+Augustus and Julius!). In any case, to convert binary numbers to decimal numbers, we
+work from the right to the left, multiplying the binary digit by a power of 2.
+Here's how it works out in this case:
+
+1*1=1
+0*2=0
+1*4=4
+1*8=8
+0*16=0
+0*32=0
+1*64=64
+1*128=128
+
+Now we add the numbers togeather.
+
+1+4+8+64+128=205
+
+Wow! What a suprise! 205. Who would have predicted that number would result from
+that string of binary bits! Now how do we convert 205 back into binary? What would
+205 in binary even look like? Pretend like you don't know the answer. It's more fun
+that way.
+
+To figure out the binary representation is of a decimal number, we're going to have
+to devide by 2 until we hit 0, paying particular attention to remainders and
+ignoring any numbers after the decimal place that result from our division, as such:
+
+205/2=102 remainder 1
+102/2=51 remainder 0
+51/2=25 remainder 1
+25/2=12 remainder 1
+12/2=6 remainder 0
+6/2=3 remainder 0
+3/2=1 remainder 1
+1/2=0 remainder 1
+
+Now we read the remainders from the bottom of the list to the top and write them
+left to right, as such:
+
+11001101
+
+Low and behold, we're back where we started!
+
+-Moving Up-
+
+"Well, what about hexadecimal," you ask "I always hear some random loser romhacker
+talking about hexadecimal. How does that work?"
+
+Hexadecimal is rather easy. Before we get into converting back and forth between
+decimal and hex, let me introduce you to the new way of counting. Ever hear of new
+math? This is nothing like that.
+
+0 1 2 3 4 5 6 7 8 9 A B C D E F.
+
+Those right there are your new numbers. Learn them well and never forget them. Lets
+try and count in hexadecimal up to 30 and watch the progression of numbers.
+
+0 1 2 3 4 5 6 7 8 9 A B C D E F 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E
+
+Well now. That wasn't too hard, was it. What? You don't believe me that 1E is 30
+(even if you do, please play along. It makes this so much more fun)? Lets convert 1E
+to decimal and find out. Converting hexadecimal to decimal is done pretty much the
+same way converting binary to hexadecimal was done.
+
+1E
+
+The digit on the far right is said to be in the "0's place" and the digit to the
+left of the 0 is in the "1's place". Just like we did with the binary conversion,
+we're going to be multiplying by a power of some number. What would that number be
+here? In the case of binary (base 2) it was 2. So in the case of hexadecimal (base
+16), I suppose it would be 16, ne?
+
+E * 16^0
+
+1 * 16^1
+
+E is the hexadecimal equivalent of 14. (A=10, B=11, C=12, ...) Keep in mind the
+lessons from your highschool math lessons. Anything to the 0 power is 1. And
+anything to the 1st power is itself. Therefore 16 raised to the 0 power is equal to
+1, and 16 rased to the first power is 16.
+
+That gets us this far:
+
+14*1=14
+
+1*16=16
+
+Now we add up our results. 16+14=30. Tada. Ladies and gentlemen, we have just
+converted a hexadecimal number to decimal! Yay for us.
+
+Ok. How about the other way around. How would I convert a decimal number to
+hexadecimal? How about we try that division stuff that worked so well before for
+binary? Sounds like a plan to me. Lets try again with 30.
+
+30/16=1 Remainder 14
+1/16=0 Remainder 1
+
+Now we read from the bottom up, remembering to convert remainders larger than 9 to
+their Hexadecimal digit equivalents. So we've got 1 and 14 which is E. 1E. Yay.
+Another successful conversion!
+
+At this point, all you really need is practice. I'd suggest taking the time to do
+some conversions on a piece of paper and testing yourself with a scientific
+calculator. Windows has one built in. Good ol' Calc can be turned into scientific
+mode and will gladly convert numbers between bases for you. With a little practice
+you should be able to do simple conversions in your head, or at least be able to
+ballpark a conversion in your head. Good luck and welcome to the world of rom
+hacking.
